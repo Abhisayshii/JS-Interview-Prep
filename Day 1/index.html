@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p> 1.Difference between “ == “ and “ === “ operators.</p>
+<br>
+<p>== is the abstract equality comparison operator and === is the strict equality comparison operator. They both are ways to check for equality. They check if something on the left is equal to something on the right.
+
+The difference between these two is that the abstract equality operator doesn’t care about the data types, whereas the strict equality operator does.</p>
+    <pre>
+// Double Equals
+console.log(2 == "2");  // true
+console.log(0 == ""); // true
+console.log(null == undefined); // true
+console.log([] == ""); // true
+
+// Triple Equals
+console.log(2 === "2"); // false
+console.log(0 === ""); // false
+console.log(null === undefined); // false
+console.log([] === ""); // false
+
+     </pre>
+     <br>
+     <p> 2.What are the differences between var, let and const?</p>
+     <br>
+     <p> Answer- VAR
+        <br>
+"var" is the oldest way to declare a variable in JavaScript. Variables declared with "var" have a function-level scope, meaning they are only accessible within the function in which they were declared. They also have "hoisting" behavior, which means they are accessible throughout the entire scope of the function, regardless of where they were declared. However, because of its function-level scope, variables declared with var can lead to unexpected behavior and are generally not recommended.
+<pre>var x = 10;
+console.log(x); // output : 10
+
+// redeclare the variable
+var x;
+console.log(x); // output : 10
+
+// variable reassignment
+x = 20;
+console.log(x); // output : 20</pre>
+<br>
+LET
+<br>
+"let" was introduced in ECMAScript 6 (also known as ES6) as an alternative to "var". Variables declared with "let" have the block-level scope, meaning they are only accessible within the block in which they were declared. They also have the concept of the temporal dead zone, which means they are not accessible before they are declared.
+<pre>let myvar = 10;
+console.log(myvar); // output : 10
+
+// reassignment
+myvar = 20;
+console.log(myvar); // output : 20
+
+// redeclaration
+let myvar = 5;
+console.log(myvar); // output : syntax error</pre>
+<br>
+CONST
+<br>
+"const" was also introduced in ECMAScript 6 and is used to declare variables that cannot be reassigned. This makes "const" variables useful for declaring constants, such as pi or the gravitational constant, which have a fixed value. Like "let", "const" variables have the block-level scope, and, they are not accessible before they are declared.
+<pre>const myvar = "first value";
+console.log(myvar); // first value
+
+// reassignment
+myvar = "second value";
+console.log(myvar); // TypeError
+
+// redeclaration
+const myvar = "third value";
+console.log(myvar); // Syntax Error</pre>
+</p>
+<br>
+<p>3.What is hoisting?</p>
+<br>
+<p> Hoisting is a concept that enables us to extract values of variables and functions even before initializing/assigning value without getting errors and this happens during the 1st phase (memory creation phase) of the Execution Context. For example,</p>
+    <pre>// using test before declaring
+console.log(test);   // undefined
+var test;</pre>
+<br>
+<p>4.What is a Temporal Dead Zone?</p>
+<br>
+<p>Temporal Dead Zone is the period of time during which the let and const declarations cannot be accessed.
+
+Temporal Dead Zone starts when the code execution enters the block which contains the let or const declaration and continues until the declaration has executed.
+for example </p>
+   <pre>function print() {
+  function log() {
+    console.log(age);
+  }
+
+  const age = 20;
+  log();
+}
+
+print(); // 20</pre>
+<br>
+<p>5.What is meant by first class functions</p>
+<br>
+<p>First-Class Function: A programming language is said to have First-class functions if functions in that language are treated like other variables. 
+    So the functions can be assigned to any other variable or passed as an argument or can be returned by another function. JavaScript treat function as a first-class-citizens. This means that functions are simply a value and are just another type of object.</p>
+<pre>const Geek = (a, b) => {
+    return (a + " " + b);
+}
+ 
+console.log(Geek("Akshit", "Saxena"));</pre>
+<br>
+<p>6.What are pure functions?</p>
+<br>
+<p>It is a function that produces the same output for the same input. It means it returns the same result when you pass the same arguments.
+     A pure function shouldn't have any side effects to change the expected output.</p>
+     <pre>function sayGreeting(name) {
+        return `Hello ${name}`;
+      }</pre>
+   
+
+</body>
+</html>
